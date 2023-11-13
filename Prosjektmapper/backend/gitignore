@@ -1,0 +1,47 @@
+# Ignore bin and obj directories
+bin/
+obj/
+
+# Ignore Visual Studio files
+.vscode/
+*.suo
+*.user
+*.sln.docstates
+
+# Ignore Rider files
+.idea/
+
+# Ignore compiled files
+*.dll
+*.exe
+*.pdb
+*.log
+
+# Ignore user-specific files
+*.user
+*.suo
+*.userprefs
+
+# Ignore NuGet packages
+*.nuget/
+
+# Ignore Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Ignore package files
+*.nupkg
+
+# Ignore Resharper files
+_ReSharper*/
+
+# Ignore SQL Server files
+*.mdf
+*.ldf
+
+# Ignore Rider, Visual Studio, and VS Code directories
+.idea/
+.vscode/
+*.suo
+*.user
+*.userprefs
