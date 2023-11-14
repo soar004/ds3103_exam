@@ -4,7 +4,7 @@ using Formula1API.Interfaces;
 public class Race : IRace
 {
     public int Id {get; set;}
-    ublic string Winner {get; set;}
+    public string Winner {get; set;}
     public TimeSpan WinnerTime {get; set;}
     public double RaceDurationInSeconds {get; set;}
     public string GrandPrix {get; set;}
