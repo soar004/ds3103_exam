@@ -1,0 +1,9 @@
+public interface IDriver
+{
+    int Id {get; set;}
+    string FirstName {get; set;}
+    string LastName {get; set;}
+    int Age {get; set;}
+    string Nationality {get; set;}
+    string ImgDriver {get; set;}
+}
