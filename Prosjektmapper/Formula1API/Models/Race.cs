@@ -4,9 +4,12 @@ using Formula1API.Interfaces;
 public class Race : IRace
 {
     public int Id {get; set;}
-    public string Manufacturer {get; set;}
-    public string ImgCar {get; set;}
-    public string Driver1 {get; set;}
-    public string Driver2 {get; set;}
+    ublic string Winner {get; set;}
+    public TimeSpan WinnerTime {get; set;}
+    public double RaceDurationInSeconds {get; set;}
+    public string GrandPrix {get; set;}
+    public int NumberOfLaps {get; set;}
     
+    
+
 }
