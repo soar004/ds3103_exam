@@ -1,0 +1,1 @@
+//viser informasjon om et lag, inkludert førerne

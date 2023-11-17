@@ -1,3 +1,4 @@
+//viser informasjon om alle førere, inkludert informasjon om førerne
 const DriverList = ({driverName, title, age, nationality}) => {
     return(
         <article>

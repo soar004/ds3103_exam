@@ -1,0 +1,1 @@
+// komponent for selve quizen

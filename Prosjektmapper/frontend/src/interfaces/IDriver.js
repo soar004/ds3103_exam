@@ -1,0 +1,1 @@
+//grensesnitt for driver-objekter

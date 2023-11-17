@@ -1,0 +1,1 @@
+//viser informasjon om en fører 

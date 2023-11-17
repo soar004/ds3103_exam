@@ -1,0 +1,1 @@
+//viser en liste over alle løp
