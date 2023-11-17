@@ -10,36 +10,35 @@ const FormulaService = (() => {
             const result = await axios.get(driversController);
             return result.data;
         }
-        catch{
-            console.log("Ikke kontakt med driverscontroller");
-            return [];
+        catch(error) {
+            console.error("Feil ved henting av førere: ", error);
+            throw error;
         }
-    }
+    };
     const getAllTeams = async () => {
         try{
             const result = await axios.get(teamsController);
             return result.data;
         }
-        catch{
-            console.log("Ikke kontakt med teamsscontroller");
-            return [];
+        catch(error){
+            console.log("Feil ved henting av lag:", error);
+            throw error;
         }
-    }
+    };
     const getAllRaces = async () => {
         try{
             const result = await axios.get(racesController);
-            return result.data;
+            return result.data
         }
-        catch{
-            console.log("Ikke kontakt med racescontroller");
-            return [];
+        catch (error){
+            console.error('Feil ved henting av race:', error);
+            throw error;
         }
-    }
-
+    };
     return {
         getAllDrivers,
+        getAllRaces,
         getAllTeams,
-        getAllRaces
     };
 
 })();

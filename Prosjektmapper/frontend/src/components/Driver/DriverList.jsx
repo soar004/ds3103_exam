@@ -1,13 +1,22 @@
 //viser informasjon om alle førere, inkludert informasjon om førerne
-const DriverList = ({driverName, title, age, nationality}) => {
+import { useContext, useEffect } from 'react';
+import { Formula1Context } from '../../context/Formula1Context';
+import DriverItem from './DriverItem';
+
+const DriverList = () => {
+    const { driver } = useContext(Formula1Context);
+
+    useEffect(() => {
+
+    }, []);
+
     return(
-        <article>
-            <div>
-                <img></img>
-                <h3>{driverName}</h3>
-            </div>
-        </article>
-    )
-}
+        <div className="driver-list">
+            {driver.map((driver) => (
+                <DriverItem key={driver.id} driver={driver}/>
+            ))}
+        </div>
+    );
+};
 
 export default DriverList;

@@ -1,8 +1,34 @@
+import { useContext, useEffect } from 'react';
+import { Formula1Context } from "../context/Formula1Context";
+import DriverList from '../components/Driver/DriverList';
+import TeamList from '../components/Team/TeamList';
+import RaceList from '../components/Race/RaceList';
+
 const DriverPage = () => {
-    return (
-        <section className="page-content">
-            <h1>F1 DRIVERS 2023</h1>
-        </section>
-    )
-}
+    const { driver, team, race } = useContext(Formula1Context);
+
+    useEffect(() => {
+
+    }, []);
+    return(
+        <div>
+            <h1>Seasons Formula 1 overview</h1>
+            
+            <section>
+                <h2>Drivers</h2>
+                <DriverList/>
+            </section>
+
+            <section>
+                <h2>Teams</h2>
+                <TeamList/>
+            </section>
+
+            <section>
+                <h2>Races</h2>
+                <RaceList />
+            </section>
+        </div>
+    );
+};
 export default DriverPage;
