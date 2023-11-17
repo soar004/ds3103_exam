@@ -1,8 +1,15 @@
+namespace Formula1API.Controllers
+{
+
+
+
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Formula1API.Models;
 using System;
 using System.Linq;
+using Formula1API.Contexts;
+
 
 [ApiController]
 [Route("api/races")]
@@ -56,7 +63,7 @@ public class RacesController : ControllerBase
             _context.Races.Add(newRace);
             _context.SaveChanges();
 
-            return CreatedAtAction(nameof(GetRaceById), new {id = newRace.Id}. newRace);
+            return CreatedAtAction(nameof(GetRaceById), new {id = newRace.Id}, newRace);
         }
         catch (Exception ex)
         {
@@ -116,4 +123,5 @@ public class RacesController : ControllerBase
 
 
     }
+}
 }
