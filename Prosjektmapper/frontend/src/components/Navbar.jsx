@@ -15,6 +15,9 @@ const Navbar = () => {
                         <Link className="nav-link" to="/drivers">SEASONS FORMULA 1 DRIVERS AND TEAMS</Link>
                     </li>
                     <li className="nav-item ml-10 p-10">
+                        <Link className="nav-link" to="/races">RACES</Link>
+                    </li>
+                    <li className="nav-item ml-10 p-10">
                         <Link className="nav-link" to="/new-driver">SIGN UP AS A DRIVER</Link>
                     </li>
                     <li className="nav-item ml-10">
