@@ -1,9 +1,16 @@
+
+
+namespace Formula1API.Controllers
+{
+
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Formula1API.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Formula1API.Contexts;
+
 
 [ApiController]
 [Route("api/teams")]
@@ -137,4 +144,5 @@ public class TeamsController : ControllerBase
             return StatusCode(500, $"Internal server error: {ex.Message}");
         }
     }
+}
 }
