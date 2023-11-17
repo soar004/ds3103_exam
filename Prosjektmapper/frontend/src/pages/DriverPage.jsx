@@ -1,6 +1,6 @@
 const DriverPage = () => {
     return (
-        <section>
+        <section className="page-content">
             <h1>F1 DRIVERS 2023</h1>
         </section>
     )

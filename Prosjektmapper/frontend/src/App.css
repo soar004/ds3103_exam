@@ -30,11 +30,10 @@
   list-style-type: none;
 }
 main {
-  padding-top: 56px;
+  padding-top: 0;
 }
-section {
-  padding-top: 20px;
-}
+
+
 
 @keyframes logo-spin {
   from {
