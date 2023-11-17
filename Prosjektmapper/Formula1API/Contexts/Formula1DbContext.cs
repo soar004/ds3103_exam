@@ -16,12 +16,12 @@ namespace Formula1API.Contexts
 
         protected override void OnModelCreating(ModelBuilder modelbuilder)
         {
-            modelBuilder.Entity<Team>()
+            modelbuilder.Entity<Team>()
                 .HasOne(t => t.Driver1)
                 .WithMany()
                 .HasForeignKey(t => t.Driver1Id); 
 
-        modelBuilder.Entity<Team>()
+        modelbuilder.Entity<Team>()
             .HasOne(t => t.Driver2)
             .WithMany()
             .HasForeignKey(t => t.Driver2Id); 

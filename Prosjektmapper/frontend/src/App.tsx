@@ -7,7 +7,7 @@ function App() {
     <>
       <BrowserRouter>
         <nav>
-          <ul><li><Link to=""></Link></li></ul>
+          <ul><li></li></ul>
           <ul><li></li></ul>
         </nav>
         <main>

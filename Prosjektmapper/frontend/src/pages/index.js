@@ -5,4 +5,9 @@ import HomePage from "./HomePage";
 import NewDriverPage from "./NewDriverPage";
 import QuizPage from "./QuizPage";
 
-export {DriverPage, HomePage, NewDriverPage, QuizPage}
+export {
+    DriverPage, 
+    HomePage, 
+    NewDriverPage, 
+    QuizPage
+}
