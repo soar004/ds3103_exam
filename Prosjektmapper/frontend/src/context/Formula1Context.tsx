@@ -1,55 +1,38 @@
-/*import {createContext, useContext, useState, useEffect} from 'react'
-import axios from 'axios';
+import {createContext, useState, useEffect} from 'react'
+import FormulaService from '../services/FormulaService';
 
-export const Formula1Context = createContext();
+export const Formula1Context = createContext(null);
 
-export const useFormula1Context = () => {
-    return useContext(Formula1Context);
-}
 export const Formula1Provider = ({ children }) => {
+
     const [driver, setDriver] = useState([]);
     const [team, setTeam] = useState([]);
     const [race, setRace] = useState([]);
 
-    const getDriver = async () => {
-        try{
-            //urlen til api drivers
-            const result = await axios.get();
-            setDriver(result.data);
-        }catch(error){ 
-            console.log("Error getting drivers:", error);
-        }
+    const getDriverFromService = async () => {
+        const driverFromService = await FormulaService.getAllDrivers();
+        setDriver(driverFromService);
     }
 
-    const getTeam = async () => {
-        try{
-            //urlen til api teams
-            const result = await axios.get();
-            setTeam(result.data);
-        }catch(error){ 
-            console.log("Error getting teams:", error);
-        }
+    const getTeamFromService = async () => {
+        const teamFromService = await FormulaService.getAllTeams();
+        setTeam(teamFromService);
     }
 
-    const getRace = async () => {
-        try{
-            //urlen til api races
-            const result = await axios.get();
-            setRace(result.data);
-        }catch(error){ 
-            console.log("Error getting races:", error);
-        }
+    const getRaceFromService = async () => {
+        const raceFromService = await FormulaService.getAllRaces();
+        setRace(raceFromService);
     }
 
     useEffect(() => {
-        getDriver();
-        getTeam();
-        getRace();
+        getDriverFromService();
+        getTeamFromService();
+        getRaceFromService();
     }, []);
+
     return (
-        <Formula1Context.Provider value={{driver, team, race, getDriver, getTeam, getRace}}>
+        <Formula1Context.Provider value={{driver, team, race}}>
             {children}
         </Formula1Context.Provider>
     )
 }
-*/
