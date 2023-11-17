@@ -5,12 +5,12 @@ namespace Formula1API.Models
 
     public class Driver : IDriver
     {
-        public int Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public int? Id { get; set; }
+        public string? FirstName { get; set; }
+        public string? LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
-        public string Nationality { get; set; }
-        public string ImgDriver { get; set; }
+        public string? Nationality { get; set; }
+        public string? ImgDriver { get; set; }
 
         // Calculate property for age
         public int Age => CalculateAge();

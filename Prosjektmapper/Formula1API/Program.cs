@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using Formula1API.Contexts;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.

@@ -1,8 +1,12 @@
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Formula1API.Models;
-using System;
-using System.Linq;
+namespace Formula1API.Controllers
+{
+
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.EntityFrameworkCore;
+    using Formula1API.Models;
+    using System;
+    using System.Linq;
+    using Formula1API.Contexts;
 
 [ApiController]
 [Route("api/drivers")]
@@ -81,7 +85,7 @@ public class DriversController : ControllerBase
             // Update the existing driver in the database 
             existingDriver.FirstName = updatedDriver.FirstName;
             existingDriver.LastName = updatedDriver.LastName;
-            existingDriver.Age = updatedDriver.Age;
+            existingDriver.DateOfBirth = updatedDriver.DateOfBirth;
             existingDriver.Nationality = updatedDriver.Nationality;
             existingDriver.ImgDriver = updatedDriver.ImgDriver;
 
@@ -118,4 +122,5 @@ public class DriversController : ControllerBase
             return StatusCode(500, $"Internal server error: {ex.Message}");
         }
     }
+}
 }
