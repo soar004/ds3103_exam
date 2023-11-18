@@ -24,6 +24,8 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+app.UseStaticFiles();
+
 // Use CORS
 app.UseCors("AllowAll");
 
