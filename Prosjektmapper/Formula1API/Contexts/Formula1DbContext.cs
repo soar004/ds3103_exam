@@ -14,7 +14,7 @@ public class Formula1DbContext : DbContext
     public DbSet<Team> Teams {get; set;}
     public DbSet<Race> Races {get; set;}
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    /*protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Team>()
             .HasOne(t => t.Driver1)
@@ -25,5 +25,5 @@ public class Formula1DbContext : DbContext
             .HasOne(t => t.Driver2)
             .WithMany()
             .HasForeignKey(t => t.Driver2Id); 
-    }
+    }*/
 }
