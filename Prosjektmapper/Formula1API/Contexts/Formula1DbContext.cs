@@ -14,14 +14,14 @@ public class Formula1DbContext : DbContext
     public DbSet<Team> Teams {get; set;}
     public DbSet<Race> Races {get; set;}
 
-    protected override void OnModelCreating(ModelBuilder modelbuilder)
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelbuilder.Entity<Team>()
+        modelBuilder.Entity<Team>()
             .HasOne(t => t.Driver1)
             .WithMany()
             .HasForeignKey(t => t.Driver1Id); 
 
-        modelbuilder.Entity<Team>()
+        modelBuilder.Entity<Team>()
             .HasOne(t => t.Driver2)
             .WithMany()
             .HasForeignKey(t => t.Driver2Id); 
