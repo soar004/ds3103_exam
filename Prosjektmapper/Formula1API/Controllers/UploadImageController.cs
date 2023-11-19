@@ -2,7 +2,6 @@ namespace Formula1API.Controllers;
 
 using Formula1API.Contexts;
 using Microsoft.AspNetCore.Mvc;
-using SQLitePCL;
 
 [ApiController]
 [Route("api/[controller]")]
