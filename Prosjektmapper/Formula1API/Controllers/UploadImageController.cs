@@ -1,7 +1,8 @@
 namespace Formula1API.Controllers;
 
-using System.Linq.Expressions;
+using Formula1API.Contexts;
 using Microsoft.AspNetCore.Mvc;
+using SQLitePCL;
 
 [ApiController]
 [Route("api/[controller]")]
@@ -9,10 +10,13 @@ using Microsoft.AspNetCore.Mvc;
 public class ImageUploadController : ControllerBase
 {
     private readonly IWebHostEnvironment webHostEnvironment;
+    private readonly Formula1DbContext _context;
 
-    public ImageUploadController(IWebHostEnvironment _webHostEnvironment)
+    public ImageUploadController(IWebHostEnvironment _webHostEnvironment, Formula1DbContext context)
     {
         webHostEnvironment = _webHostEnvironment;
+        _context = context;
+        
     }
 
 
@@ -23,20 +27,21 @@ public string Get()
 }
 
 [HttpPost]
-public IActionResult SaveImage(IFormFile formFile)
+public IActionResult SaveImage(int driverId, IFormFile formFile)
 {
     try{
+        var driverToUpdate = _context.Drivers.FirstOrDefault(d => d.Id == driverId);
+
+        if(driverToUpdate == null){
+            return NotFound("Driver not found");
+        }
+
         using (var memoryStream = new MemoryStream()){
             formFile.CopyTo(memoryStream);
-            var imgData = memoryStream.ToArray();
+            driverToUpdate.ImgDriver = memoryStream.ToArray();
         }
-        /*string webRootPath = webHostEnvironment.WebRootPath;
-        string absolutePath = Path.Combine($"{webRootPath}/images/{formFile.FileName}");
 
-        using(var fileStream = new FileStream(absolutePath, FileMode.Create))
-        {
-            formFile.CopyTo(fileStream);
-        }*/
+        _context.SaveChanges();
 
         return Ok();
     }
