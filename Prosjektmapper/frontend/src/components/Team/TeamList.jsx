@@ -13,7 +13,17 @@ const TeamList = () => {
     return(
         <div>
             {team.map((team) => (
-                <TeamItem key={team.id} team={team}/>
+                <Card key={team.manufacturer} className="mb-3">
+                    <Card.Header>{team.manufacturer}</Card.Header>
+                    <Card.Body>
+                        <Card.Title>{TeamItem.manufacturer}</Card.Title>
+                        <Card.Text>
+                            Driver 1: {team.driver1}
+                            Driver 2: {team.driver2}
+                        </Card.Text>
+                        {team.image}
+                    </Card.Body>
+                </Card>
             ))}
         </div>
     );

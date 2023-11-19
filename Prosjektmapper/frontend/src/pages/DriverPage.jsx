@@ -23,11 +23,6 @@ const DriverPage = () => {
                 <h2>Teams</h2>
                 <TeamList/>
             </section>
-
-            <section>
-                <h2>Races</h2>
-                <RaceList />
-            </section>
         </div>
     );
 };
