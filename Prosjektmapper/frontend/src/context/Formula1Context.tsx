@@ -26,11 +26,15 @@ export const Formula1Provider = ({ children }) => {
     }
 
     const getRaceFromService = async () => {
-        const raceFromService = await FormulaService.getAllRaces();
+        try{
+            const raceFromService = await FormulaService.getAllRaces();
         setRace(raceFromService);
+        }catch (error){
+            console.log("Feil ved henting av race: ", error);
+            throw error;
+        }
+        
     }
-
-
     return (
         <Formula1Context.Provider value = {{driver, team, race}}>
             {children}

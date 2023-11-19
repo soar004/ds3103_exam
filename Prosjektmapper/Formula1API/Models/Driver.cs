@@ -13,7 +13,7 @@ namespace Formula1API.Models
         public byte[]? ImgDriver { get; set; }
 
         // Calculate property for age
-        public int Age { get=> CalculateAge(); set => throw new NotImplementedException();}
+        public int Age { get => CalculateAge(); set => throw new NotImplementedException();}
         
         private int CalculateAge()
         {

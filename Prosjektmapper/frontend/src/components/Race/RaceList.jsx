@@ -2,11 +2,12 @@
 import { useContext, useEffect } from 'react';
 import RaceItem from './Raceitem';
 import { Formula1Context } from '../../context/Formula1Context';
+
 const RaceList = () => {
     const {race} = useContext(Formula1Context);
 
     useEffect(()=> {
-
+        getRaceFromService;
     }, []);
 
     return(

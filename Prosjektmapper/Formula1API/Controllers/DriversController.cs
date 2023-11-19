@@ -19,17 +19,20 @@ public class DriversController : ControllerBase
         _context = context;
     }
 
+    // GET: api/drivers
     [HttpGet]
     public ActionResult<IEnumerable<Driver>> GetDrivers()
     {
         try
         {
+            // Retrieve all teams from the database
             var drivers = _context.Drivers.ToList();
             return Ok(drivers);
         }
         catch (Exception ex)
         {
-            return StatusCode(500, $"Internal server error: {ex.Message}");
+            // Handle internal server error
+            return StatusCode(500, $"Internal server error by getting drivers: {ex.Message}");
         }
     }
 
@@ -49,7 +52,23 @@ public class DriversController : ControllerBase
         }
         catch (Exception ex)
         {
-            return StatusCode(500, $"Internal server error: {ex.Message}");
+            return StatusCode(500, $"Internal server error by getting drivers by id: {ex.Message}");
+        }
+    }
+    [HttpGet("byname/{name}")]
+    public ActionResult<IEnumerable<Driver>> GetDriverByName(string name) {
+        try 
+        {
+            var drivers = _context.Drivers
+                .AsEnumerable()
+                .Where(d => (d.FirstName + " " + d.LastName).Contains(name, StringComparison.OrdinalIgnoreCase))
+                .ToList();
+
+            return Ok(drivers);  
+        }
+        catch(Exception ex)
+        {
+            return StatusCode(500, $"Internal server error by getting drivers by name: {ex.Message}");
         }
     }
 
@@ -71,7 +90,7 @@ public class DriversController : ControllerBase
         }
         catch (Exception ex)
         {
-            return StatusCode(500, $"Internal server error: {ex.Message}");
+            return StatusCode(500, $"Internal server error by creating a driver: {ex.Message}");
         }
     }
 
@@ -104,7 +123,7 @@ public class DriversController : ControllerBase
         }
         catch (Exception ex)
         {
-            return StatusCode(500, $"Internal server error: {ex.Message}");
+            return StatusCode(500, $"Internal server error by updating a driver: {ex.Message}");
         }
     }
 
@@ -128,7 +147,7 @@ public class DriversController : ControllerBase
         }
         catch (Exception ex)
         {
-            return StatusCode(500, $"Internal server error: {ex.Message}");
+            return StatusCode(500, $"Internal server error by deleting a driver: {ex.Message}");
         }
     }
 }

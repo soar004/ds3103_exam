@@ -4,6 +4,8 @@ import { Formula1Context } from '../../context/Formula1Context';
 import TeamItem from './TeamItem';
 
 const TeamList = () => {
+
+    const {team} = useContext(Formula1Context);
     useEffect(() => {
 
     }, []);
