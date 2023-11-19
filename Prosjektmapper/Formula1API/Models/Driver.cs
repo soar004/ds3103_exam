@@ -13,8 +13,8 @@ namespace Formula1API.Models
         public string? ImgDriver { get; set; }
 
         // Calculate property for age
-        public int Age => CalculateAge();
-
+        public int Age { get=> CalculateAge(); set => throw new NotImplementedException();}
+        
         private int CalculateAge()
         {
             // Calculate the driver's age based on their DOB and current date

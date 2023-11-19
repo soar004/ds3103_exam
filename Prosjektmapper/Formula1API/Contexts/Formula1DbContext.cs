@@ -1,30 +1,29 @@
-namespace Formula1API.Contexts
-{
+namespace Formula1API.Contexts;
 
-    using Microsoft.EntityFrameworkCore;
-    using Formula1API.Models;
+
+using Microsoft.EntityFrameworkCore;
+using Formula1API.Models;
     
-    public class Formula1DbContext : DbContext
+public class Formula1DbContext : DbContext
+{
+    public Formula1DbContext(DbContextOptions<Formula1DbContext> options): base(options)
     {
-        public Formula1DbContext(DbContextOptions<Formula1DbContext> options): base(options)
-        {
-        }
+    }
 
-        public DbSet<Driver> Drivers {get; set;}
-        public DbSet<Team> Teams {get; set;}
-        public DbSet<Race> Races {get; set;}
+    public DbSet<Driver> Drivers {get; set;}
+    public DbSet<Team> Teams {get; set;}
+    public DbSet<Race> Races {get; set;}
 
-        protected override void OnModelCreating(ModelBuilder modelbuilder)
-        {
-            modelbuilder.Entity<Team>()
-                .HasOne(t => t.Driver1)
-                .WithMany()
-                .HasForeignKey(t => t.Driver1Id); 
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Team>()
+            .HasOne(t => t.Driver1)
+            .WithMany()
+            .HasForeignKey(t => t.Driver1Id); 
 
-        modelbuilder.Entity<Team>()
+        modelBuilder.Entity<Team>()
             .HasOne(t => t.Driver2)
             .WithMany()
             .HasForeignKey(t => t.Driver2Id); 
-            }
     }
 }

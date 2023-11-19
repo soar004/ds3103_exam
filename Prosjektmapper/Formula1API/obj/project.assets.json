@@ -1719,19 +1719,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/solveigarvik/.nuget/packages/": {}
+    "/Users/elinemadso/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/solveigarvik/Library/CloudStorage/OneDrive-HøyskolenKristiania/Høyskolen Kristiania/Semester 3/DS3103/ds3103_exam/Prosjektmapper/Formula1API/Formula1API.csproj",
+      "projectUniqueName": "/Users/elinemadso/Documents/Webutvikling-eksamen/ds3103_exam/Prosjektmapper/Formula1API/Formula1API.csproj",
       "projectName": "Formula1API",
-      "projectPath": "/Users/solveigarvik/Library/CloudStorage/OneDrive-HøyskolenKristiania/Høyskolen Kristiania/Semester 3/DS3103/ds3103_exam/Prosjektmapper/Formula1API/Formula1API.csproj",
-      "packagesPath": "/Users/solveigarvik/.nuget/packages/",
-      "outputPath": "/Users/solveigarvik/Library/CloudStorage/OneDrive-HøyskolenKristiania/Høyskolen Kristiania/Semester 3/DS3103/ds3103_exam/Prosjektmapper/Formula1API/obj/",
+      "projectPath": "/Users/elinemadso/Documents/Webutvikling-eksamen/ds3103_exam/Prosjektmapper/Formula1API/Formula1API.csproj",
+      "packagesPath": "/Users/elinemadso/.nuget/packages/",
+      "outputPath": "/Users/elinemadso/Documents/Webutvikling-eksamen/ds3103_exam/Prosjektmapper/Formula1API/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/solveigarvik/.nuget/NuGet/NuGet.Config"
+        "/Users/elinemadso/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -1797,7 +1797,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/Cellar/dotnet/7.0.100/libexec/sdk/7.0.100/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.402/RuntimeIdentifierGraph.json"
       }
     }
   }
