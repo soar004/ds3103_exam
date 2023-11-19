@@ -42,17 +42,51 @@ const getAllRacesBtn = document.querySelector("#get-all-races-btn");
 
  const showDrivers = (driverArray) => {
     driverArray.forEach(driver => {
-        showDrivers(driver);
+        showDriver(driver);
     });
  }
- const showDriver = (orc) => {
+ const showTeams = (teamArray) => {
+    teamArray.forEach(team => {
+        showTeam(team);
+    });
+ }
+ const showRaces = (raceArray) => {
+    raceArray.forEach(race => {
+        showRace(race);
+    });
+ }
+
+ const showDriver = (driver) => {
     let htmlTxt = `
         <article>
-            <h3>${driver.firstname}${driver.lastname}(${driver.id})</h3>
+            <h3>${driver.Firstname}${driver.lastname}(${driver.Id})</h3>
             <p>${driver.DateOfBirth}</p>
             <p>${driver.Nationality}</p>
             <img>
             <p>${driver.Age} år gammel </p>
+        </article>
+    `;
+    outputSection.innerHTML += htmlTxt;
+ }
+
+ const showTeam = (team) => {
+    let htmlTxt = `
+        <article>
+            <h3>${team.Manufacturer}(${team.Id})</h3>
+            <p>${team.Driver1}(${team.Driver1Id}) ${team.Driver2} (${team.Driver2Id})</p>
+            <img>
+        </article>
+    `;
+    outputSection.innerHTML += htmlTxt;
+ }
+
+ const showRace = (race) => {
+    let htmlTxt = `
+        <article>
+            <h3>${race.Grandprix}</h3>
+            <p>${race.Id}
+            <p>${race.Winner} ${race.WinnerTime}</p>
+            <p>${race.NumberOfLaps}</p>
         </article>
     `;
     outputSection.innerHTML += htmlTxt;
