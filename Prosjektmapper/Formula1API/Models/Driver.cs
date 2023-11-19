@@ -8,6 +8,7 @@ namespace Formula1API.Models
         public int? Id { get; set; }
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
+
         public DateTime DateOfBirth { get; set; }
         public string? Nationality { get; set; }
         public string? ImgDriver { get; set; }
@@ -15,6 +16,11 @@ namespace Formula1API.Models
         // Calculate property for age
         public int Age => CalculateAge();
 
+        private int CalculateAge(){
+            return 0;
+        }
+
+        /*
         private int CalculateAge()
         {
             // Calculate the driver's age based on their DOB and current date
@@ -25,6 +31,6 @@ namespace Formula1API.Models
                 age--;
             }
             return age;
-        }
+        }*/
     }
 }
