@@ -10,7 +10,7 @@ namespace Formula1API.Models
         public string? LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
         public string? Nationality { get; set; }
-        public string? ImgDriver { get; set; }
+        public byte[]? ImgDriver { get; set; }
 
         // Calculate property for age
         public int Age { get=> CalculateAge(); set => throw new NotImplementedException();}

@@ -54,13 +54,18 @@ public class DriversController : ControllerBase
     }
 
     [HttpPost]
-    public ActionResult<Driver> CreateDriver([FromBody] Driver newDriver)
+    public async Task<ActionResult<Driver>> CreateDriver([FromBody] Driver newDriver, IFormFile image)
     {
         try
         {
+            if(image != null){
+                    using var memoryStream = new MemoryStream();
+                    image.CopyTo(memoryStream);
+                    newDriver.ImgDriver = memoryStream.ToArray();
+                }
             // Add the new driver to the database
             _context.Drivers.Add(newDriver);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
 
             return CreatedAtAction(nameof(GetDriverById), new { id = newDriver.Id }, newDriver);
         }
@@ -71,7 +76,7 @@ public class DriversController : ControllerBase
     }
 
     [HttpPut("{id}")]
-    public ActionResult<Driver> UpdateDriver(int id, [FromBody] Driver updatedDriver)
+    public async Task<ActionResult<Driver>> UpdateDriver(int id, [FromBody] Driver updatedDriver, IFormFile image)
     {
         try
         {
@@ -81,15 +86,19 @@ public class DriversController : ControllerBase
             {
                 return NotFound();
             }
+            if(image != null){
+                    using var memoryStream = new MemoryStream();
+                    image.CopyTo(memoryStream);
+                    existingDriver.ImgDriver = memoryStream.ToArray();
+                }
 
             // Update the existing driver in the database 
             existingDriver.FirstName = updatedDriver.FirstName;
             existingDriver.LastName = updatedDriver.LastName;
             existingDriver.DateOfBirth = updatedDriver.DateOfBirth;
             existingDriver.Nationality = updatedDriver.Nationality;
-            existingDriver.ImgDriver = updatedDriver.ImgDriver;
 
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
 
             return Ok(existingDriver);
         }

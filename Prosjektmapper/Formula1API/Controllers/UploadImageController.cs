@@ -1,5 +1,6 @@
 namespace Formula1API.Controllers;
 
+using System.Linq.Expressions;
 using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
@@ -22,17 +23,27 @@ public string Get()
 }
 
 [HttpPost]
-public IActionResult SaveImage(IFormFile file)
+public IActionResult SaveImage(IFormFile formFile)
 {
-    string webRootPath = webHostEnvironment.WebRootPath;
-    string absolutePath = Path.Combine($"{webRootPath}/images/{file.FileName}");
+    try{
+        using (var memoryStream = new MemoryStream()){
+            formFile.CopyTo(memoryStream);
+            var imgData = memoryStream.ToArray();
+        }
+        /*string webRootPath = webHostEnvironment.WebRootPath;
+        string absolutePath = Path.Combine($"{webRootPath}/images/{formFile.FileName}");
 
-    using(var fileStream = new FileStream(absolutePath, FileMode.Create))
-    {
-        file.CopyTo(fileStream);
+        using(var fileStream = new FileStream(absolutePath, FileMode.Create))
+        {
+            formFile.CopyTo(fileStream);
+        }*/
+
+        return Ok();
     }
-
-    return Ok();
+    catch(Exception ex){
+        return StatusCode(500, $"Internal server error: {ex.Message}");
+    }
 }
+
 
 }
