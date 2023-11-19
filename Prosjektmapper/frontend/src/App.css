@@ -18,6 +18,23 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
+.navbar-nav .navlink{
+  color: white !important;
+}
+.navbar-nav .nav-link:hover {
+  color: rgb(208, 33, 33) !important;
+}
+#navbarStyle {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+}
+main {
+  padding-top: 0;
+}
+
+
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);

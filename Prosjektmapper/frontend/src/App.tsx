@@ -1,19 +1,24 @@
-import { BrowserRouter, Routes, Route,Link } from 'react-router-dom'
-import { HomePage, DriverPage, NewDriverPage, QuizPage } from './pages'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HomePage, DriverPage, NewDriverPage, QuizPage, } from './pages'
+import './app.css';
+import Navbar from './components/Navbar';
+import { Formula1Provider } from './context/Formula1Context';
 
 function App() {
 
   return (
     <>
       <BrowserRouter>
-        <nav>
-          <ul><li></li></ul>
-          <ul><li></li></ul>
-        </nav>
+        <Navbar />
         <main>
+          <Formula1Provider>
           <Routes>
-            <Route></Route>
+            <Route path="/" element={<HomePage/>} />
+            <Route path="/drivers" element={<DriverPage/>} />
+            <Route path="/new-driver" element={<NewDriverPage/>} />
+            <Route path="/quiz" element={<QuizPage/>} />
           </Routes>
+          </Formula1Provider>
         </main>
       </BrowserRouter>
     </>
