@@ -7,11 +7,11 @@ using Microsoft.AspNetCore.Mvc;
 
 public class ImageUploadController : ControllerBase
 {
-    private readonly IWebHosteEvironment webHostEnvirornment;
+    private readonly IWebHostEnvironment webHostEnvironment;
 
-    public ImageUploadController(IWebHostEnvironment _webHosteEnvironment);
+    public ImageUploadController(IWebHostEnvironment _webHostEnvironment)
     {
-        webHostEnvirornment = _webHostEnvironment;
+        webHostEnvironment = _webHostEnvironment;
     }
 
 
@@ -24,7 +24,7 @@ public string Get()
 [HttpPost]
 public IActionResult SaveImage(IFormFile file)
 {
-    string webRootPath = webHosteEvironment.webRootPath;
+    string webRootPath = webHostEnvironment.WebRootPath;
     string absolutePath = Path.Combine($"{webRootPath}/images/{file.FileName}");
 
     using(var fileStream = new FileStream(absolutePath, FileMode.Create))
