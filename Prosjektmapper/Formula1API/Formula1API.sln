@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "backend", "backend.csproj", "{460A9088-44B6-4414-8422-589CE709365C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Formula1API", "Formula1API.csproj", "{460A9088-44B6-4414-8422-589CE709365C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
