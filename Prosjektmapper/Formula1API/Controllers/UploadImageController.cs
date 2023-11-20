@@ -1,5 +1,6 @@
 namespace Formula1API.Controllers;
 
+using Formula1API.Contexts;
 using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
@@ -7,11 +8,14 @@ using Microsoft.AspNetCore.Mvc;
 
 public class ImageUploadController : ControllerBase
 {
-    private readonly IWebHosteEvironment webHostEnvirornment;
+    private readonly IWebHostEnvironment webHostEnvironment;
+    private readonly Formula1DbContext _context;
 
-    public ImageUploadController(IWebHostEnvironment _webHosteEnvironment);
+    public ImageUploadController(IWebHostEnvironment _webHostEnvironment, Formula1DbContext context)
     {
-        webHostEnvirornment = _webHostEnvironment;
+        webHostEnvironment = _webHostEnvironment;
+        _context = context;
+        
     }
 
 
@@ -22,17 +26,28 @@ public string Get()
 }
 
 [HttpPost]
-public IActionResult SaveImage(IFormFile file)
+public IActionResult SaveImage(int driverId, IFormFile formFile)
 {
-    string webRootPath = webHosteEvironment.webRootPath;
-    string absolutePath = Path.Combine($"{webRootPath}/images/{file.FileName}");
+    try{
+        var driverToUpdate = _context.Drivers.FirstOrDefault(d => d.Id == driverId);
 
-    using(var fileStream = new FileStream(absolutePath, FileMode.Create))
-    {
-        file.CopyTo(fileStream);
+        if(driverToUpdate == null){
+            return NotFound("Driver not found");
+        }
+
+        using (var memoryStream = new MemoryStream()){
+            formFile.CopyTo(memoryStream);
+            driverToUpdate.ImgDriver = memoryStream.ToArray();
+        }
+
+        _context.SaveChanges();
+
+        return Ok();
     }
-
-    return Ok();
+    catch(Exception ex){
+        return StatusCode(500, $"Internal server error: {ex.Message}");
+    }
 }
+
 
 }

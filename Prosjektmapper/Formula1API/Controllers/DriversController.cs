@@ -19,17 +19,20 @@ public class DriversController : ControllerBase
         _context = context;
     }
 
+    // GET: api/drivers
     [HttpGet]
     public ActionResult<IEnumerable<Driver>> GetDrivers()
     {
         try
         {
+            // Retrieve all teams from the database
             var drivers = _context.Drivers.ToList();
             return Ok(drivers);
         }
         catch (Exception ex)
         {
-            return StatusCode(500, $"Internal server error: {ex.Message}");
+            // Handle internal server error
+            return StatusCode(500, $"Internal server error by getting drivers: {ex.Message}");
         }
     }
 
@@ -49,29 +52,50 @@ public class DriversController : ControllerBase
         }
         catch (Exception ex)
         {
-            return StatusCode(500, $"Internal server error: {ex.Message}");
+            return StatusCode(500, $"Internal server error by getting drivers by id: {ex.Message}");
+        }
+    }
+    [HttpGet("byname/{name}")]
+    public ActionResult<IEnumerable<Driver>> GetDriverByName(string name) {
+        try 
+        {
+            var drivers = _context.Drivers
+                .AsEnumerable()
+                .Where(d => (d.FirstName + " " + d.LastName).Contains(name, StringComparison.OrdinalIgnoreCase))
+                .ToList();
+
+            return Ok(drivers);  
+        }
+        catch(Exception ex)
+        {
+            return StatusCode(500, $"Internal server error by getting drivers by name: {ex.Message}");
         }
     }
 
     [HttpPost]
-    public ActionResult<Driver> CreateDriver([FromBody] Driver newDriver)
+    public async Task<ActionResult<Driver>> CreateDriver([FromBody] Driver newDriver, IFormFile image)
     {
         try
         {
+            if(image != null){
+                    using var memoryStream = new MemoryStream();
+                    image.CopyTo(memoryStream);
+                    newDriver.ImgDriver = memoryStream.ToArray();
+                }
             // Add the new driver to the database
             _context.Drivers.Add(newDriver);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
 
             return CreatedAtAction(nameof(GetDriverById), new { id = newDriver.Id }, newDriver);
         }
         catch (Exception ex)
         {
-            return StatusCode(500, $"Internal server error: {ex.Message}");
+            return StatusCode(500, $"Internal server error by creating a driver: {ex.Message}");
         }
     }
 
     [HttpPut("{id}")]
-    public ActionResult<Driver> UpdateDriver(int id, [FromBody] Driver updatedDriver)
+    public async Task<ActionResult<Driver>> UpdateDriver(int id, [FromBody] Driver updatedDriver, IFormFile image)
     {
         try
         {
@@ -81,21 +105,25 @@ public class DriversController : ControllerBase
             {
                 return NotFound();
             }
+            if(image != null){
+                    using var memoryStream = new MemoryStream();
+                    image.CopyTo(memoryStream);
+                    existingDriver.ImgDriver = memoryStream.ToArray();
+                }
 
             // Update the existing driver in the database 
             existingDriver.FirstName = updatedDriver.FirstName;
             existingDriver.LastName = updatedDriver.LastName;
             existingDriver.DateOfBirth = updatedDriver.DateOfBirth;
             existingDriver.Nationality = updatedDriver.Nationality;
-            existingDriver.ImgDriver = updatedDriver.ImgDriver;
 
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
 
             return Ok(existingDriver);
         }
         catch (Exception ex)
         {
-            return StatusCode(500, $"Internal server error: {ex.Message}");
+            return StatusCode(500, $"Internal server error by updating a driver: {ex.Message}");
         }
     }
 
@@ -119,7 +147,7 @@ public class DriversController : ControllerBase
         }
         catch (Exception ex)
         {
-            return StatusCode(500, $"Internal server error: {ex.Message}");
+            return StatusCode(500, $"Internal server error by deleting a driver: {ex.Message}");
         }
     }
 }

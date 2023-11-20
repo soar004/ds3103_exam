@@ -7,6 +7,6 @@ namespace Formula1API.Interfaces {
         string? LastName {get; set;}
         int Age {get; set;}
         string? Nationality {get; set;}
-        string? ImgDriver {get; set;}
+        byte[]? ImgDriver {get; set;}
 }
 }

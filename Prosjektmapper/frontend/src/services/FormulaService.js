@@ -1,9 +1,9 @@
 import axios from "axios";
 
 const FormulaService = (() => {
-    const driversController = "http://localhost:5004/api/drivers";
-    const teamsController = "http://localhost:5004/api/teams";
-    const racesController = "http://localhost:5004/api/races";
+    const driversController = "http://localhost:3000/api/drivers";
+    const teamsController = "http://localhost:3000/api/teams";
+    const racesController = "http://localhost:3000/api/races";
 
     const getAllDrivers = async () => {
         try{
