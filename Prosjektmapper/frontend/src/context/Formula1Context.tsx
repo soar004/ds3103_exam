@@ -1,4 +1,4 @@
-import {createContext, useState, useEffect} from 'react'
+import {createContext, useState, useEffect} from 'react';
 import FormulaService from '../services/FormulaService';
 
 export const Formula1Context = createContext();
