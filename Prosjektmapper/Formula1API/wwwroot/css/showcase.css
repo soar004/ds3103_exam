@@ -1,0 +1,6 @@
+body {
+	background: #000;
+	width: 90rem;
+	height: 64rem;
+	flex-shrink: 0;
+}
