@@ -24,9 +24,19 @@ const DriverItem = ({ id, imgDriver, firstName, lastName, age, nationality}) => 
         15: 'orange-hover',
         16: 'pink-hover'
     };
+
+    const [hoverColor, setHoverColor] = useState('');
+    const handleMouseEnter = () => {
+        const assignedColor = colorMapping[id] || '';
+        setHoverColor(assignedColor);
+    }
+    const handleMouseLeave = () => {
+        setHoverColor('');
+    };
+    const hoverClass = hoverColor ? `${hoverColor}` : '';
     
     return (
-        <article className="col-12 col-md-6 col-lg-4 mb-3">
+        <article className={`col-12 col-md-6 col-lg-4 mb-3${hoverClass}`} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseEnter}>
             <div className="p-3 bg-dark text-light shadow p-3 mb-2 rounded">
                 <img src={imagePath} className="img-fluid img-thumbnail mx-auto rounded" alt={`Picture of ${firstName} ${lastName}`}/>
                 <h3 className="m-2">{firstName} {lastName}</h3>
