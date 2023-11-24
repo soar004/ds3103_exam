@@ -18,21 +18,4 @@ const TeamItem = ({ team }) => {
     );
 };
 
-TeamItem.propTypes = {
-    team: PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        manufacturer: PropTypes.string.isRequired,
-        image: PropTypes.string.isRequired,
-        drivers: PropTypes.arrayOf(
-            PropTypes.shape({
-                id: PropTypes.number.isRequired,
-                name: PropTypes.string.isRequired,
-                age: PropTypes.number.isRequired,
-                nationality: PropTypes.string.isRequired,
-                image: PropTypes.string.isRequired,
-            })
-        ).isRequired,
-    }).isRequired,
-};
-
 export default TeamItem;
