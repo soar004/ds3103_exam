@@ -3,18 +3,16 @@ import PropTypes from 'prop-types';
 import DriverItem from '../Driver/DriverItem';
 import { getDropdownMenuPlacement } from 'react-bootstrap/esm/DropdownMenu';
 
-const TeamItem = ({ team }) => {
+const TeamItem = ({ id, manufacturer, image, driver1, driver1Id, driver2, driver2Id }) => {
     return (
-        <div className="team-card">
-            <h2>{team.manufacturer}</h2>
-            <img src={team.image} alt="Bilde av ${team.manufacturer}"/>
-            <h3>Drivers:</h3>
+        <article className="col-12 col-md-6 col-lg-4">
             <div>
-                {team.drivers.map((driver) => (
-                    <DriverItem key={driver.id} driver={driver}/>
-                ))}
+                <h3>{manufacturer}</h3>
+                <img src={image} alt={`Picture of ${team.manufacturer}'s car`}/>
+                <p>Driver 1: {driver1}</p>
+                <p>Driver 2: {driver2}</p>
             </div>
-        </div>
+        </article>
     );
 };
 
