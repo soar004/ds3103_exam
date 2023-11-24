@@ -8,6 +8,7 @@ const FormulaService = (() => {
     const getAllDrivers = async () => {
         try{
             const result = await axios.get(driversController);
+            console.log(result);
             return result.data;
         }
         catch(error) {
