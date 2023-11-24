@@ -6,7 +6,24 @@ const DriverItem = ({ id, imgDriver, firstName, lastName, age, nationality}) => 
 
     const imagePath = `http://localhost:3000/images/drivers/${imgDriver}`;
 
-    //console.log(`bildebane: ./assets/images/${image}`);
+    const colorMapping = {
+        1: 'orange-hover',
+        2: 'blue-hover',
+        3: 'white-hover',
+        4: 'orange-hover',
+        5: 'pink-hover',
+        6: 'orange-hover',
+        7: 'green-hover',
+        8: 'red-hover',
+        9: 'green-hover',
+        10: 'white-hover',
+        11: 'white-hover',
+        12: 'blue-hover',
+        13: 'red-hover',
+        14: 'blue-hover',
+        15: 'orange-hover',
+        16: 'pink-hover'
+    };
     
     return (
         <article className="col-12 col-md-6 col-lg-4 mb-3">
