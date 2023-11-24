@@ -4,7 +4,7 @@
 const DriverItem = ({ id, imgDriver, firstName, lastName, age, nationality}) => {
 
 
-    const imagePath = `http://localhost:3000/api/drivers/${imgDriver}`;
+    const imagePath = `http://localhost:3000/images/drivers/${imgDriver}`;
 
     //console.log(`bildebane: ./assets/images/${image}`);
     

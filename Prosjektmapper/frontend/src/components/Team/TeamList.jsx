@@ -13,7 +13,7 @@ const TeamList = () => {
             key={i} 
             id = {teams.id}
             manufacturer={teams.manufacturer}
-            image={teams.image}
+            imgCar={teams.imgCar}
             driver1 = {teams.driver1}
             driver1Id = {teams.driver1Id}
             driver2 = {teams.driver2}
