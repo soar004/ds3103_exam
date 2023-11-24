@@ -72,21 +72,15 @@ public class DriversController : ControllerBase
         }
     }
 
-    /*[HttpPost]
-    public async Task<ActionResult<Driver>> CreateDriver([FromBody] Driver newDriver, IFormFile image)
+    [HttpPost]
+    public async Task<ActionResult<Driver>> CreateDriver(Driver newDriver)
     {
         try
         {
-            if(image != null){
-                    using var memoryStream = new MemoryStream();
-                    image.CopyTo(memoryStream);
-                    newDriver.ImgDriver = memoryStream.ToArray();
-                }
-            // Add the new driver to the database
             _context.Drivers.Add(newDriver);
+            //lagrer i databasen
             await _context.SaveChangesAsync();
-
-            return CreatedAtAction(nameof(GetDriverById), new { id = newDriver.Id }, newDriver);
+            return NoContent();
         }
         catch (Exception ex)
         {
@@ -116,6 +110,7 @@ public class DriversController : ControllerBase
             await _context.SaveChangesAsync();
 
             return Ok(existingDriver);
+            }
         }
         catch (Exception ex)
         {
