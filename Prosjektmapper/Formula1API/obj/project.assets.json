@@ -1719,19 +1719,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/elinemadso/.nuget/packages/": {}
+    "/Users/solveigarvik/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/elinemadso/Documents/Webutvikling-eksamen/ds3103_exam/Prosjektmapper/Formula1API/Formula1API.csproj",
+      "projectUniqueName": "/Users/solveigarvik/Library/CloudStorage/OneDrive-HøyskolenKristiania/Høyskolen Kristiania/Semester 3/DS3103/ds3103_exam/Prosjektmapper/Formula1API/Formula1API.csproj",
       "projectName": "Formula1API",
-      "projectPath": "/Users/elinemadso/Documents/Webutvikling-eksamen/ds3103_exam/Prosjektmapper/Formula1API/Formula1API.csproj",
-      "packagesPath": "/Users/elinemadso/.nuget/packages/",
-      "outputPath": "/Users/elinemadso/Documents/Webutvikling-eksamen/ds3103_exam/Prosjektmapper/Formula1API/obj/",
+      "projectPath": "/Users/solveigarvik/Library/CloudStorage/OneDrive-HøyskolenKristiania/Høyskolen Kristiania/Semester 3/DS3103/ds3103_exam/Prosjektmapper/Formula1API/Formula1API.csproj",
+      "packagesPath": "/Users/solveigarvik/.nuget/packages/",
+      "outputPath": "/Users/solveigarvik/Library/CloudStorage/OneDrive-HøyskolenKristiania/Høyskolen Kristiania/Semester 3/DS3103/ds3103_exam/Prosjektmapper/Formula1API/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/elinemadso/.nuget/NuGet/NuGet.Config"
+        "/Users/solveigarvik/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -1789,6 +1789,20 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[7.0.14, 7.0.14]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.osx-x64",
+            "version": "[7.0.14, 7.0.14]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[7.0.14, 7.0.14]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -1797,7 +1811,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.402/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/Cellar/dotnet/8.0.0/libexec/sdk/8.0.100/RuntimeIdentifierGraph.json"
       }
     }
   }
