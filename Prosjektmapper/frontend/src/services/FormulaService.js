@@ -5,7 +5,8 @@ const FormulaService = (() => {
     const apiEndPoints= {
         "drivers": "http://localhost:3000/api/drivers",
         "teams": "http://localhost:3000/api/teams",
-        "races":"http://localhost:3000/api/races"
+        "races":"http://localhost:3000/api/races",
+        "uploadImage": "http://localhost:3000/api/ImageUpload"
     };
     let drivers = [];
     let teams = [];
@@ -23,6 +24,20 @@ const FormulaService = (() => {
             throw error;
         }
     };
+
+    const postDrivers = async (newDrivers, imgDriver) => {
+        const result = await axios.post(apiEndPoints.drivers, newDrivers);
+        const formData = new FormData();
+        formData.append("formFile", imgDriver);
+
+        const uploadResult = await axios({
+            url: apiEndPoints.uploadImage,
+            method: "POST",
+            data: formData,
+            headers: {"Content-Type":"multipart/form-data" }
+        });
+        formData.delete("formFile");
+    }
     const getDriverById = async (id) => {
         const result = await axios.get(`${apiEndPoints.drivers}/${id}`);
         drivers = result.data;
@@ -60,6 +75,7 @@ const FormulaService = (() => {
         getDriverById,
         getAllRaces,
         getAllTeams,
+        postDrivers,
     };
 
 })();

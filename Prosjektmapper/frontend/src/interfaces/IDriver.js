@@ -2,10 +2,11 @@
 
 const IDriver = {
     id: 0,
-    name: '',
+    firstName: '',
+    lastName: '',
     age: 0,
     nationality: '',
-    image: '',
+    imgDriver: '',
 };
 
 export default IDriver;

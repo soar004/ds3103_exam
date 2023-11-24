@@ -72,7 +72,7 @@ public class DriversController : ControllerBase
         }
     }
 
-    [HttpPost]
+    /*[HttpPost]
     public async Task<ActionResult<Driver>> CreateDriver([FromBody] Driver newDriver, IFormFile image)
     {
         try
@@ -94,7 +94,7 @@ public class DriversController : ControllerBase
         }
     }
 
-    [HttpPut("{id}")]
+    /*[HttpPut("{id}")]
     public async Task<ActionResult<Driver>> UpdateDriver(int id, [FromBody] Driver updatedDriver, IFormFile image)
     {
         try
@@ -106,10 +106,6 @@ public class DriversController : ControllerBase
                 return NotFound();
             }
             if(image != null){
-                    using var memoryStream = new MemoryStream();
-                    image.CopyTo(memoryStream);
-                    existingDriver.ImgDriver = memoryStream.ToArray();
-                }
 
             // Update the existing driver in the database 
             existingDriver.FirstName = updatedDriver.FirstName;
@@ -125,7 +121,7 @@ public class DriversController : ControllerBase
         {
             return StatusCode(500, $"Internal server error by updating a driver: {ex.Message}");
         }
-    }
+    }*/
 
     [HttpDelete("{id}")]
     public IActionResult DeleteDriver(int id)

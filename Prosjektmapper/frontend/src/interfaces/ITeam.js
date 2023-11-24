@@ -5,7 +5,7 @@ import IDriver from "./IDriver";
 const ITeam = {
     id: 0,
     manufacturer: '',
-    image: '',
+    imgCar: '',
     driver1: '',
     driver2: '',
 };

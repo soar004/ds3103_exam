@@ -1,13 +1,18 @@
 //viser informasjon om en fører 
-import { propTypes } from 'react-bootstrap/esm/Image';
+//import { propTypes } from 'react-bootstrap/esm/Image';
 
-const DriverItem = ({ id, image, firstName, lastName, age, nationality}) => {
+const DriverItem = ({ id, imgDriver, firstName, lastName, age, nationality}) => {
+
+
+    const imagePath = `http://localhost:3000/api/drivers/${imgDriver}`;
+
+    //console.log(`bildebane: ./assets/images/${image}`);
     
     return (
         <article className="col-12 col-md-6 col-lg-4">
             <div>
-                <img src={image} alt={`Picture of ${firstName} ${lastName}`}/>
-                <h3>{firstName}{lastName}</h3>
+                <img src={imagePath} alt={`Picture of ${firstName} ${lastName}`}/>
+                <h3>{firstName} {lastName}</h3>
                 <p>Age: {age} </p>
                 <p>Nationality: {nationality} </p>
             </div>
