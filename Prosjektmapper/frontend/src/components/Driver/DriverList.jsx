@@ -7,9 +7,10 @@ const DriverList = () => {
     const { driver } = useContext(Formula1Context);
     
     const getDriverItemJSX = () => {
-        return driver.map((driver, id) => (
-            <DriverItem key={id} driver= {driver} />
+        const getDriverItemJSX = driver.map((driver, i) => (
+            <DriverItem key={i} name={driver}></DriverItem>
         ));
+        return getDriverItemJSX;
     };
 
     useEffect(() => {
