@@ -114,7 +114,7 @@ public class DriversController : ControllerBase
             // Update the existing driver in the database 
             existingDriver.FirstName = updatedDriver.FirstName;
             existingDriver.LastName = updatedDriver.LastName;
-            existingDriver.DateOfBirth = updatedDriver.DateOfBirth;
+            existingDriver.Age = updatedDriver.Age;
             existingDriver.Nationality = updatedDriver.Nationality;
 
             await _context.SaveChangesAsync();
