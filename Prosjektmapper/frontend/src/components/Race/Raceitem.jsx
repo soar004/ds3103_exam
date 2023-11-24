@@ -1,7 +1,5 @@
 // viser informasjon om et løp
-import PropTypes from 'prop-types';
-
-const RaceItem = ({ race }) => {
+const RaceItem = ({ grandPrix, winnerName, winnerTime, numberOfLaps }) => {
     return (
         <div className="race-card">
             <h2>{grandPrix}</h2>

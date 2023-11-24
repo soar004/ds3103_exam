@@ -1,5 +1,4 @@
 //viser informasjon om en fører 
-import PropTypes from 'prop-types';
 import { propTypes } from 'react-bootstrap/esm/Image';
 
 const DriverItem = ({ id, firstName, lastName, age, nationality}) => {

@@ -1,5 +1,4 @@
 //viser informasjon om et lag, inkludert førerne
-import PropTypes from 'prop-types';
 import DriverItem from '../Driver/DriverItem';
 import { getDropdownMenuPlacement } from 'react-bootstrap/esm/DropdownMenu';
 

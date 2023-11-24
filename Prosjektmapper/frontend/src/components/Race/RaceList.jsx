@@ -25,9 +25,12 @@ const RaceList = () => {
     }, []);
 
     return(
-        <section>
-            {getRaceItemJSX()}
-        </section>
+        <div className="race-list">
+            <h3>Races</h3>
+            <section className="row g-3">
+                {getRaceItemJSX()}
+            </section>
+        </div>
     );
 };
 
