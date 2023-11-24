@@ -1,35 +1,54 @@
 import axios from "axios";
 
 const FormulaService = (() => {
-    const driversController = "http://localhost:3000/api/drivers";
-    const teamsController = "http://localhost:3000/api/teams";
-    const racesController = "http://localhost:3000/api/races";
+
+    const apiEndPoints= {
+        "drivers": "http://localhost:3000/api/drivers",
+        "teams": "http://localhost:3000/api/teams",
+        "races":"http://localhost:3000/api/races"
+    };
+    let drivers = [];
+    let teams = [];
+    let races = [];
 
     const getAllDrivers = async () => {
         try{
-            const result = await axios.get(driversController);
-            console.log(result);
-            return result.data;
+            const result = await axios.get(apiEndPoints.drivers);
+            drivers = result.data.results;
+            console.log(drivers);
+            return drivers;
         }
         catch(error) {
             console.error("Feil ved henting av førere: ", error);
             throw error;
         }
     };
+    const getCharacterById = async (id) => {
+        const result = await axios.get(`${apiEndPoints.drivers}/${id}`);
+        drivers = result.data;
+        console.log(drivers);
+        return drivers;
+    }
+
     const getAllTeams = async () => {
         try{
-            const result = await axios.get(teamsController);
-            return result.data;
+            const result = await axios.get(apiEndPoints.teams);
+            teams = result.data.results;
+            console.log(teams);
+            return teams;
         }
         catch(error){
             console.log("Feil ved henting av lag:", error);
             throw error;
         }
     };
+
     const getAllRaces = async () => {
         try{
-            const result = await axios.get(racesController);
-            return result.data
+            const result = await axios.get(apiEndPoints.races);
+            races = result.data.results;
+            console.log(races);
+            return races;
         }
         catch (error){
             console.error('Feil ved henting av race:', error);
@@ -43,4 +62,5 @@ const FormulaService = (() => {
     };
 
 })();
+
 export default FormulaService;

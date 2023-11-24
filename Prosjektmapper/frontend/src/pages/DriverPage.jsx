@@ -2,10 +2,9 @@ import { useContext, useEffect } from 'react';
 import { Formula1Context } from "../context/Formula1Context";
 import DriverList from '../components/Driver/DriverList';
 import TeamList from '../components/Team/TeamList';
-import RaceList from '../components/Race/RaceList';
 
 const DriverPage = () => {
-    const { driver, team, race } = useContext(Formula1Context);
+    const { driver, team } = useContext(Formula1Context);
 
     useEffect(() => {
 

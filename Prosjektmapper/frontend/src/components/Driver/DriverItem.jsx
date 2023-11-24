@@ -2,7 +2,7 @@
 import PropTypes from 'prop-types';
 import { propTypes } from 'react-bootstrap/esm/Image';
 
-const DriverItem = ({ driver }) => {
+const DriverItem = ({ id, firstName, lastName, age, nationality }) => {
     return (
         <div className="driver-card">
             <img src={driver.image} alt={`Picture of ${driver.name}`}/>
@@ -11,16 +11,6 @@ const DriverItem = ({ driver }) => {
             <p>Nationality: {driver.nationality}</p>
         </div>
     );
-};
-
-DriverItem.propTypes = {
-    driver: PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        name: PropTypes.string.isRequired,
-        age: PropTypes.number.isRequired,
-        nationality: PropTypes.string.isRequired,
-        image: PropTypes.string.isRequired
-    }).isRequired,
 };
 
 export default DriverItem;
