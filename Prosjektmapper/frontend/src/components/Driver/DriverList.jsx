@@ -13,6 +13,7 @@ const DriverList = () => {
             <DriverItem 
             key={i} 
             id={driver.id}
+            image={driver.image}
             firstName={driver.firstName}
             lastName={driver.lastName}
             age={driver.age}

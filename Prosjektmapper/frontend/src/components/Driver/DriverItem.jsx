@@ -2,14 +2,17 @@
 import PropTypes from 'prop-types';
 import { propTypes } from 'react-bootstrap/esm/Image';
 
-const DriverItem = ({ id, firstName, lastName, age, nationality }) => {
+const DriverItem = ({ id, firstName, lastName, age, nationality}) => {
+    
     return (
-        <div className="driver-card">
-            <img src={driver.image} alt={`Picture of ${driver.name}`}/>
-            <h3>{driver.name}</h3>
-            <p>Age: {driver.age}</p>
-            <p>Nationality: {driver.nationality}</p>
-        </div>
+        <article className="col-12 col-md-6 col-lg-4">
+            <div>
+                <img src={image} alt={`Picture of ${driver.name}`}/>
+                <h3>{firstName}{lastName}</h3>
+                <p>Age: {age} </p>
+                <p>Nationality: {nationality} </p>
+            </div>
+        </article>
     );
 };
 

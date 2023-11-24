@@ -9,7 +9,13 @@ const RaceList = () => {
 
     const getRaceItemJSX = () => {
         const getRaceItemJSX = race.map((race, i) => (
-            <RaceItem key={i} name={race}></RaceItem>
+            <RaceItem 
+            key={i} 
+            grandPrix={race.grandPrix}
+            winnerName={race.winnerName}
+            winnerTime={race.winnerTime}
+            numberOfLaps={race.numberOfLaps}
+            ></RaceItem>
         ));
         return getRaceItemJSX;
     }
