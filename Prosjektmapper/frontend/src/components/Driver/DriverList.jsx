@@ -5,6 +5,12 @@ import DriverItem from './DriverItem';
 
 const DriverList = () => {
     const { driver } = useContext(Formula1Context);
+    
+    const getDriverItemJSX = () => {
+        return driver.map((driver, id) => (
+            <DriverItem key={id} driver= {driver} />
+        ));
+    };
 
     useEffect(() => {
 
@@ -12,9 +18,7 @@ const DriverList = () => {
 
     return(
         <div className="driver-list">
-            {driver.map((driver) => (
-                <DriverItem key={driver.id} driver={driver}/>
-            ))}
+            {getDriverItemJSX()}
         </div>
     );
 };

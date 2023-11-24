@@ -5,7 +5,7 @@ import { propTypes } from 'react-bootstrap/esm/Image';
 const DriverItem = ({ driver }) => {
     return (
         <div className="driver-card">
-            <img src={driver-image} alt={`Picture of ${driver.name}`}/>
+            <img src={driver.image} alt={`Picture of ${driver.name}`}/>
             <h3>{driver.name}</h3>
             <p>Age: {driver.age}</p>
             <p>Nationality: {driver.nationality}</p>

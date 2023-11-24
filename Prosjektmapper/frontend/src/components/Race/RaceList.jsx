@@ -4,18 +4,24 @@ import RaceItem from './Raceitem';
 import { Formula1Context } from '../../context/Formula1Context';
 
 const RaceList = () => {
+    //oppkobling til context
     const {race} = useContext(Formula1Context);
 
+    const getRaceItemJSX = () => {
+        const getRaceItemJSX = race.map((race, i) => (
+            <RaceItem key={i} name={race}></RaceItem>
+        ));
+        return getRaceItemJSX;
+    }
+
     useEffect(()=> {
-        getRaceFromService;
+        //getRaceFromService;
     }, []);
 
     return(
-        <div>
-            {race.map((race) => (
-                <RaceItem key={race.id} race={race} />
-            ))}
-        </div>
+        <section>
+            {getRaceItemJSX()}
+        </section>
     );
 };
 
