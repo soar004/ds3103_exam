@@ -9,21 +9,22 @@ const DriverList = () => {
     const { driver } = useContext(Formula1Context);
     
     const getDriverItemJSX = () => {
-        const getDriverItemJSX = driver.map((driver, i) => (
+        const getDriverItemJSX = driver.map((drivers, i) => (
             <DriverItem 
             key={i} 
-            id={driver.id}
-            image={driver.image}
-            firstName={driver.firstName}
-            lastName={driver.lastName}
-            age={driver.age}
-            nationality={driver.nationality}
+            id={drivers.id}
+            image={drivers.image}
+            firstName={drivers.firstName}
+            lastName={drivers.lastName}
+            age={drivers.age}
+            nationality={drivers.nationality}
             ></DriverItem>
         ));
         return getDriverItemJSX;
     };
 
     useEffect(() => {
+        //getDriverFromService();
     }, []);
 
     return(

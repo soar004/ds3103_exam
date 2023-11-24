@@ -14,7 +14,7 @@ const FormulaService = (() => {
     const getAllDrivers = async () => {
         try{
             const result = await axios.get(apiEndPoints.drivers);
-            drivers = result.data.results;
+            drivers = result.data;
             console.log(drivers);
             return drivers;
         }
@@ -23,7 +23,7 @@ const FormulaService = (() => {
             throw error;
         }
     };
-    const getCharacterById = async (id) => {
+    const getDriverById = async (id) => {
         const result = await axios.get(`${apiEndPoints.drivers}/${id}`);
         drivers = result.data;
         console.log(drivers);
@@ -33,7 +33,7 @@ const FormulaService = (() => {
     const getAllTeams = async () => {
         try{
             const result = await axios.get(apiEndPoints.teams);
-            teams = result.data.results;
+            teams = result.data;
             console.log(teams);
             return teams;
         }
@@ -46,7 +46,7 @@ const FormulaService = (() => {
     const getAllRaces = async () => {
         try{
             const result = await axios.get(apiEndPoints.races);
-            races = result.data.results;
+            races = result.data;
             console.log(races);
             return races;
         }

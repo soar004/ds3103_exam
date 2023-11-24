@@ -8,16 +8,16 @@ const TeamList = () => {
     const {team} = useContext(Formula1Context);
     
     const getTeamItemJSX = () => {
-        const getTeamItemJSX = team.map((team, i) => (
+        const getTeamItemJSX = team.map((teams, i) => (
             <TeamItem 
             key={i} 
-            id = {team.id}
-            manufacturer={team.manufacturer}
-            image={team.image}
-            driver1 = {team.driver1}
-            driver1Id = {team.driver1Id}
-            driver2 = {team.driver2}
-            driver2Id = {team.driver2Id}
+            id = {teams.id}
+            manufacturer={teams.manufacturer}
+            image={teams.image}
+            driver1 = {teams.driver1}
+            driver1Id = {teams.driver1Id}
+            driver2 = {teams.driver2}
+            driver2Id = {teams.driver2Id}
             ></TeamItem>
         ));
         return getTeamItemJSX;
