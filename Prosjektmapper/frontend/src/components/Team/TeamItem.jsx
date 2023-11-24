@@ -1,38 +1,20 @@
 //viser informasjon om et lag, inkludert førerne
-import PropTypes from 'prop-types';
 import DriverItem from '../Driver/DriverItem';
 import { getDropdownMenuPlacement } from 'react-bootstrap/esm/DropdownMenu';
 
-const TeamItem = ({ team }) => {
-    return (
-        <div className="team-card">
-            <h2>{team.manufacturer}</h2>
-            <img src={team.image} alt="Bilde av ${team.manufacturer}"/>
-            <h3>Drivers:</h3>
-            <div>
-                {team.drivers.map((driver) => (
-                    <DriverItem key={driver.id} driver={driver}/>
-                ))}
-            </div>
-        </div>
-    );
-};
+const TeamItem = ({ id, manufacturer, imgCar, driver1, driver1Id, driver2, driver2Id }) => {
+    const imagePath = `http://localhost:3000/images/teams/${imgCar}`;
 
-TeamItem.propTypes = {
-    team: PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        manufacturer: PropTypes.string.isRequired,
-        image: PropTypes.string.isRequired,
-        drivers: PropTypes.arrayOf(
-            PropTypes.shape({
-                id: PropTypes.number.isRequired,
-                name: PropTypes.string.isRequired,
-                age: PropTypes.number.isRequired,
-                nationality: PropTypes.string.isRequired,
-                image: PropTypes.string.isRequired,
-            })
-        ).isRequired,
-    }).isRequired,
+    return (
+        <article className="col-12 col-sm-8 col-lg-6">
+            <div className="p-3 bg-dark text-light rounded shadow">
+                <h3 className="m-2">{manufacturer}</h3>
+                <img src={imagePath} className="img-fluid img-thumbnail mx- rounded" alt={`Picture of ${manufacturer}'s car`}/>
+                <p>Driver 1: {driver1}</p>
+                <p>Driver 2: {driver2}</p>
+            </div>
+        </article>
+    );
 };
 
 export default TeamItem;

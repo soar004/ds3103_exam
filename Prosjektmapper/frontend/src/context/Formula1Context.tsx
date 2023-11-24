@@ -1,10 +1,12 @@
-import {createContext, useState, useEffect} from 'react'
+import {createContext, useState, useEffect} from 'react';
 import FormulaService from '../services/FormulaService';
 
-export const Formula1Context = createContext();
+export const Formula1Context = createContext({});
 
-export const Formula1Provider = ({ children }) => {
 
+export const Formula1Provider = ({children}: {children: React.ReactNode}) => {
+
+    //dataen i contexten
     const [driver, setDriver] = useState([]);
     const [team, setTeam] = useState([]);
     const [race, setRace] = useState([]);
@@ -16,13 +18,25 @@ export const Formula1Provider = ({ children }) => {
     }, []);
 
     const getDriverFromService = async () => {
-        const driverFromService = await FormulaService.getAllDrivers();
-        setDriver(driverFromService);
+        try {
+            const driverFromService = await FormulaService.getAllDrivers();
+            setDriver(driverFromService);
+        }
+        catch (error){
+            console.error("Feil ved henting av førere:", error);
+            throw error;
+        }
     }
 
     const getTeamFromService = async () => {
-        const teamFromService = await FormulaService.getAllTeams();
-        setTeam(teamFromService);
+        try {
+            const teamFromService = await FormulaService.getAllTeams();
+            setTeam(teamFromService);
+        }
+        catch (error) {
+            console.log("Feil ved henting av lag: ", error);
+            throw error;
+        }
     }
 
     const getRaceFromService = async () => {
@@ -35,8 +49,9 @@ export const Formula1Provider = ({ children }) => {
         }
         
     }
+    //tilgangsfunksjoner
     return (
-        <Formula1Context.Provider value = {{driver, team, race}}>
+        <Formula1Context.Provider value={{driver, team, race}}>
             {children}
         </Formula1Context.Provider>
     )

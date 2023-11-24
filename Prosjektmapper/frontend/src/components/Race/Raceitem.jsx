@@ -1,25 +1,16 @@
 // viser informasjon om et løp
-import PropTypes from 'prop-types';
-
-const RaceItem = ({ race }) => {
+const RaceItem = ({ grandPrix, winnerName, winnerTime, numberOfLaps }) => {
     return (
-        <div className="race-card">
-            <h2>{race.grandPrix}</h2>
-            <p>Winner: {race.winnerName}</p>
-            <p>Country: {race.grandPrix}</p>
-            <p>Number of Laps: {race.numberOfLaps}</p>
-        </div>
+        <article className="col-12 col-sm-8 col-md-6">
+            <div className="p-3 bg-dark text-light rounded">
+                <h2 className="m-2 text-white">{grandPrix}</h2>
+                <p className="fs-5 text-white">Winner: {winnerName} with winnertime: {winnerTime}</p>
+                <p className="text-white">Country: {grandPrix}</p>
+                <p className="text-white">Number of Laps: {numberOfLaps}</p>
+            </div>
+        </article>
     );
 };
 
-RaceItem.propTypes = {
-    race: PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        winnerName: PropTypes.string.isRequired,
-        winnerTime: PropTypes.string.isRequired,
-        grandPrix: PropTypes.string.isRequired,
-        numberOfLaps: PropTypes.number.isRequired,
-    }).isRequired,
-};
 
 export default RaceItem;

@@ -1,7 +1,7 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route} from 'react-router-dom'
 import { HomePage, DriverPage, NewDriverPage, QuizPage, RacePage } from './pages'
 import './app.css';
-import Navbar from './components/Navbar';
+import Navbar from './components/shared/Navbar';
 import { Formula1Provider } from './context/Formula1Context';
 
 function App() {

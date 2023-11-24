@@ -25,7 +25,7 @@ public string Get()
         return "Hello from Get() in ImageUploadController";
 }
 
-[HttpPost]
+/*[HttpPost]
 public IActionResult SaveImage(int driverId, IFormFile formFile)
 {
     try{
@@ -47,7 +47,7 @@ public IActionResult SaveImage(int driverId, IFormFile formFile)
     catch(Exception ex){
         return StatusCode(500, $"Internal server error: {ex.Message}");
     }
-}
+}*/
 
 
 }
