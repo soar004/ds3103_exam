@@ -10,7 +10,7 @@ const DriverPage = () => {
 
     }, []);
     return(
-        <div>
+        <>
             <h1>Seasons Formula 1 overview</h1>
             
             <section>
@@ -20,7 +20,7 @@ const DriverPage = () => {
             <section>
                 <TeamList/>
             </section>
-        </div>
+        </>
     );
 };
 export default DriverPage;
