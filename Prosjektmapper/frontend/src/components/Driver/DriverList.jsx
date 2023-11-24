@@ -3,6 +3,7 @@ import { useContext, useEffect } from 'react';
 import FormulaService from '../../services/FormulaService';
 import { Formula1Context } from '../../context/Formula1Context';
 import DriverItem from './DriverItem';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const DriverList = () => {
 
@@ -18,6 +19,7 @@ const DriverList = () => {
             lastName={drivers.lastName}
             age={drivers.age}
             nationality={drivers.nationality}
+            className="col-12 col-sm-6 col-md-4 col-lg-3"
             ></DriverItem>
         ));
         return getDriverItemJSX;
@@ -29,7 +31,7 @@ const DriverList = () => {
 
     return(
         <div className="driver-list">
-            <h3>Drivers</h3>
+            <h3 className="fs-1 p-4 text-white">Drivers</h3>
             <section className="row g-3">
                 {getDriverItemJSX()}
             </section>

@@ -1,7 +1,7 @@
 const QuizPage = () => {
     return(
         <section>
-            <h1>QUIZ ABOUT FORMULA 1</h1>
+            <h2>QUIZ ABOUT FORMULA 1</h2>
         </section>
     )
 }

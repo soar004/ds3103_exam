@@ -27,8 +27,8 @@ const TeamList = () => {
 
     return(
         <div className="team-list">
-            <h3>Teams</h3>
-            <section className="row g-3">
+            <h3 className="fs-1 p-4 text-white">Teams</h3>
+            <section className="row g-3 d-flex align-items-stretch">
                 {getTeamItemJSX()}
             </section>
         </div>

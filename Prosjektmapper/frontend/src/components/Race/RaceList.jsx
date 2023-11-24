@@ -26,7 +26,7 @@ const RaceList = () => {
 
     return(
         <div className="race-list">
-            <h3>Races</h3>
+            <h3 className="fs-1 p-4 text-white">Races</h3>
             <section className="row g-3">
                 {getRaceItemJSX()}
             </section>
