@@ -57,6 +57,7 @@ const FormulaService = (() => {
     };
     return {
         getAllDrivers,
+        getDriverById,
         getAllRaces,
         getAllTeams,
     };

@@ -8,13 +8,13 @@ const RaceList = () => {
     const {race} = useContext(Formula1Context);
 
     const getRaceItemJSX = () => {
-        const getRaceItemJSX = race.map((race, i) => (
+        const getRaceItemJSX = race.map((races, i) => (
             <RaceItem 
             key={i} 
-            grandPrix={race.grandPrix}
-            winnerName={race.winnerName}
-            winnerTime={race.winnerTime}
-            numberOfLaps={race.numberOfLaps}
+            grandPrix={races.grandPrix}
+            winnerName={races.winnerName}
+            winnerTime={races.winnerTime}
+            numberOfLaps={races.numberOfLaps}
             ></RaceItem>
         ));
         return getRaceItemJSX;

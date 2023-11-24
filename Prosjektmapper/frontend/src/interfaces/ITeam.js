@@ -6,7 +6,8 @@ const ITeam = {
     id: 0,
     manufacturer: '',
     image: '',
-    drivers: [],
+    driver1: '',
+    driver2: '',
 };
 
 export default ITeam;
