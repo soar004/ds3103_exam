@@ -14,12 +14,10 @@ const DriverPage = () => {
             <h1>Seasons Formula 1 overview</h1>
             
             <section>
-                <h2>Drivers</h2>
                 <DriverList/>
             </section>
 
             <section>
-                <h2>Teams</h2>
                 <TeamList/>
             </section>
         </div>
