@@ -49,6 +49,8 @@ const AddDriver = () => {
                 <label>Lastname</label>
                 <input name='lastName' onChange={handleChange} type="text"/>
             </div>
+            <input onClick={saveDriver} type="button" value="Add Driver"/>
         </section>
     )
 }
+export default AddDriver;
