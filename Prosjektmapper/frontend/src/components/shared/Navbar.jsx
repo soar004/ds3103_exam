@@ -1,9 +1,9 @@
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import homeIcon from '../../assets/images/New_era_F1_logo.png';
 
 const Navbar = () => {
     return (
-        <nav className="navbar navbar-expand-lg fixed-top p-0 bg-dark">
+        <nav className="navbar navbar-expand-lg fixed-top p-2 bg-dark">
             <div className="container">
             
                 <div className="collapse navbar-collapse" id="navbarNav">
