@@ -25,29 +25,18 @@ public string Get()
         return "Hello from Get() in ImageUploadController";
 }
 
-/*[HttpPost]
-public IActionResult SaveImage(int driverId, IFormFile formFile)
-{
-    try{
-        var driverToUpdate = _context.Drivers.FirstOrDefault(d => d.Id == driverId);
+[HttpPost]
+public IActionResult PostImage(IFormFile formFile){
+    string webRootPath = webHostEnvironment.WebRootPath;
+    string absolutePath = Path.Combine($"{webRootPath}/images/{formFile.FileName}");
 
-        if(driverToUpdate == null){
-            return NotFound("Driver not found");
-        }
-
-        using (var memoryStream = new MemoryStream()){
-            formFile.CopyTo(memoryStream);
-            driverToUpdate.ImgDriver = memoryStream.ToArray();
-        }
-
-        _context.SaveChanges();
-
-        return Ok();
+    using(var fileStream = new FileStream(absolutePath, FileMode.Create)){
+        formFile.CopyTo(fileStream);
     }
-    catch(Exception ex){
-        return StatusCode(500, $"Internal server error: {ex.Message}");
-    }
-}*/
+    return Ok();
+}
+
+
 
 
 }
