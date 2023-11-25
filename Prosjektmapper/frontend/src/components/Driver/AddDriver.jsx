@@ -16,7 +16,8 @@ const AddDriver = () => {
     const [error, setError] = useState(null);
 
     const handleChange = (e) => {
-        switch(e.currentTarget.name) {
+        const name = e.currentTarget.name;
+        switch(name) {
             case "firstName":
                 setFirstName(e.currentTarget.value);
             break;
@@ -37,21 +38,21 @@ const AddDriver = () => {
 
     const saveDriver = async () => {
         try{
-            setLoading(true);
+            //setLoading(true);
             const newDriver = {
                 firstName: firstName,
                 lastName: lastName,
                 age: age,
                 nationality: nationality,
-                imgDriver: imgDriver.name
+                imgDriver: imgDriver ? imgDriver.name : ""
             };
-            await FormulaService.postDrivers(newDriver, imgDriver);
+            await FormulaService.postDriver(newDriver, imgDriver);
         }
         catch(error){
             console.error("Feil ved lagring av fører:", error);
             setError("Something went wrong by adding a driver. Please try again");
         } finally {
-            setLoading(false);
+            //setLoading(false);
         }
     }
 
@@ -60,25 +61,25 @@ const AddDriver = () => {
         <section className="container mt-4 bg-dark p-4 rounded">
             {error && <p style={{color: "red"}}>{error}</p>}
             <div className="form-group">
-                <label className="text-white">Firstname</label>
+                <label className="text-white p-2">Firstname</label>
                 <input name='firstName' onChange={handleChange} type="text" className="form-control"/>
                 
             </div>
             <div className="form-group">
-                <label className="text-white">Lastname</label>
+                <label className="text-white p-2">Lastname</label>
                 <input name='lastName' onChange={handleChange} type="text" className="form-control"/>
             </div>
 
             <div className="form-group">
-                <label className="text-white">Age</label>
+                <label className="text-white p-2">Age</label>
                 <input name='age' onChange={handleChange} type="text" className="form-control"/>
             </div>
             <div className="form-group">
-                <label className="text-white">Nationality</label>
+                <label className="text-white p-2">Nationality</label>
                 <input name='nationality' onChange={handleChange} type="text" className="form-control"/>
             </div>
             <div className="form-group">
-                <label className="text-white">Image of yourself</label>
+                <label className="text-white p-2">Image of yourself</label>
                 <input name='imgDriver' onChange={handleChange} type="file" className="form-control-file text-white p-3"/>
             </div>
             <button onClick={saveDriver} disabled={loading} className="btn btn-danger">

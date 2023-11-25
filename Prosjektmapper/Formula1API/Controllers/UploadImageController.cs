@@ -1,4 +1,5 @@
-namespace Formula1API.Controllers;
+namespace Formula1API.Controllers
+{
 
 using Formula1API.Contexts;
 using Microsoft.AspNetCore.Mvc;
@@ -14,29 +15,30 @@ public class ImageUploadController : ControllerBase
     public ImageUploadController(IWebHostEnvironment _webHostEnvironment, Formula1DbContext context)
     {
         webHostEnvironment = _webHostEnvironment;
-        _context = context;
-        
+        _context = context;  
     }
 
-
-[HttpGet]
-public string Get()
-{
+    [HttpGet]
+    public string Get()
+    {
         return "Hello from Get() in ImageUploadController";
-}
+    }
 
-[HttpPost]
-public IActionResult PostImage(IFormFile formFile){
+    [HttpPost]
+    public IActionResult PostImage(IFormFile formFile){
+
     string webRootPath = webHostEnvironment.WebRootPath;
-    string absolutePath = Path.Combine($"{webRootPath}/images/{formFile.FileName}");
+    string absolutePath = Path.Combine($"{webRootPath}/images/drivers/{formFile.FileName}");
 
-    using(var fileStream = new FileStream(absolutePath, FileMode.Create)){
+    //lagrer av webApi
+    using(var fileStream = new FileStream(absolutePath, FileMode.Create))
+    {
         formFile.CopyTo(fileStream);
     }
     return Ok();
+    }
+
+
 }
-
-
-
 
 }

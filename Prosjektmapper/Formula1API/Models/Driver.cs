@@ -11,8 +11,7 @@ namespace Formula1API.Models
         public int Age { get; set; }
         public string? Nationality { get; set; }
         public byte[]? ImgDriver { get; set; }
-
-        
-        
+        int? IDriver.Age { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        string? IDriver.ImgDriver { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     }
 }

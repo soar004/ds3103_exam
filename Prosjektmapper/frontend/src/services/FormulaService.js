@@ -26,8 +26,9 @@ const FormulaService = (() => {
     };
 
     //funksjon for å pakke inn bildet og sende det til webApiet
-    const postDrivers = async (newDrivers, imgDriver) => {
-        const result = await axios.post(apiEndPoints.drivers, newDrivers);
+    //må være async
+    const postDriver = async (newDriver, imgDriver) => {
+        const result = await axios.post(apiEndPoints.drivers, newDriver);
         const formData = new FormData();
         formData.append("formFile", imgDriver);
 
@@ -79,7 +80,7 @@ const FormulaService = (() => {
         getDriverById,
         getAllRaces,
         getAllTeams,
-        postDrivers,
+        postDriver,
     };
 
 })();

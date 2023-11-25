@@ -27,7 +27,12 @@ public class DriversController : ControllerBase
         {
             // Retrieve all teams from the database
             List<Driver> drivers = await _context.Drivers.ToListAsync();
-            return Ok(drivers);
+            if(drivers != null){
+                return Ok(drivers);
+            }
+            else{
+                return NotFound();
+            }
         }
         catch (Exception ex)
         {
@@ -74,12 +79,12 @@ public class DriversController : ControllerBase
     }
 
     [HttpPost]
-    public IActionResult CreateDriver(Driver newDriver)
+    public IActionResult PostDriver(Driver newDriver)
     {
         try{
             _context.Drivers.Add(newDriver);
             _context.SaveChanges();
-            return Ok(newDriver);
+            return Ok();//CreatedAtAction(nameof(GetDriverById), new{id = newDriver.Id }, newDriver); //204
 
         }
         catch (Exception ex){
