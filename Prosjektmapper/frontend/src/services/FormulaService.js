@@ -25,11 +25,13 @@ const FormulaService = (() => {
         }
     };
 
+    //funksjon for å pakke inn bildet og sende det til webApiet
     const postDrivers = async (newDrivers, imgDriver) => {
         const result = await axios.post(apiEndPoints.drivers, newDrivers);
         const formData = new FormData();
         formData.append("formFile", imgDriver);
 
+        //sender bildet til webApiet
         const uploadResult = await axios({
             url: apiEndPoints.uploadImage,
             method: "POST",
