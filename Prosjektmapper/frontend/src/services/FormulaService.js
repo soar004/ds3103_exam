@@ -39,6 +39,8 @@ const FormulaService = (() => {
             headers: {"Content-Type":"multipart/form-data" }
         });
         formData.delete("formFile");
+
+        return{ driverResult: result.data, uploadResult: uploadResult.data};
     }
     const getDriverById = async (id) => {
         const result = await axios.get(`${apiEndPoints.drivers}/${id}`);

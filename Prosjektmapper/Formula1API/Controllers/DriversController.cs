@@ -76,10 +76,15 @@ public class DriversController : ControllerBase
     [HttpPost]
     public IActionResult CreateDriver(Driver newDriver)
     {
+        try{
             _context.Drivers.Add(newDriver);
-            //lagrer i databasen
             _context.SaveChanges();
-            return Ok();
+            return Ok(newDriver);
+
+        }
+        catch (Exception ex){
+            return StatusCode(500, $"Internal server error by creating a driver. {ex.Message}");
+        }
     }
 
     /*[HttpPut("{id}")]

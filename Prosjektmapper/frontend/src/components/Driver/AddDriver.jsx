@@ -61,21 +61,21 @@ const AddDriver = () => {
             {error && <p style={{color: "red"}}>{error}</p>}
             <div className="form-group">
                 <label className="text-white">Firstname</label>
-                <input name='firstName' value="firstname" onChange={handleChange} type="text" className="form-control"/>
+                <input name='firstName' onChange={handleChange} type="text" className="form-control"/>
                 
             </div>
             <div className="form-group">
                 <label className="text-white">Lastname</label>
-                <input name='lastName' value="lastname" onChange={handleChange} type="text" className="form-control"/>
+                <input name='lastName' onChange={handleChange} type="text" className="form-control"/>
             </div>
 
             <div className="form-group">
                 <label className="text-white">Age</label>
-                <input name='age' value="Age" onChange={handleChange} type="text" className="form-control"/>
+                <input name='age' onChange={handleChange} type="text" className="form-control"/>
             </div>
             <div className="form-group">
                 <label className="text-white">Nationality</label>
-                <input name='nationality' value="Nationality" onChange={handleChange} type="text" className="form-control"/>
+                <input name='nationality' onChange={handleChange} type="text" className="form-control"/>
             </div>
             <div className="form-group">
                 <label className="text-white">Image of yourself</label>
