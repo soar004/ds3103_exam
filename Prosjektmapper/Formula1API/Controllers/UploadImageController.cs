@@ -25,17 +25,18 @@ public class ImageUploadController : ControllerBase
     }
 
     [HttpPost]
-    public IActionResult PostImage(IFormFile formFile){
-
-    string webRootPath = webHostEnvironment.WebRootPath;
-    string absolutePath = Path.Combine($"{webRootPath}/images/drivers/{formFile.FileName}");
-
-    //lagrer av webApi
-    using(var fileStream = new FileStream(absolutePath, FileMode.Create))
+    public IActionResult PostImage(IFormFile formFile)
     {
-        formFile.CopyTo(fileStream);
-    }
-    return Ok();
+
+        string webRootPath = webHostEnvironment.WebRootPath;
+        string absolutePath = Path.Combine($"{webRootPath}/images/drivers/{formFile.FileName}");
+
+        //lagrer av webApi
+        using(var fileStream = new FileStream(absolutePath, FileMode.Create))
+        {
+            formFile.CopyTo(fileStream);
+        }
+        return Ok();
     }
 
 
