@@ -1,13 +1,19 @@
 import {useEffect, useState} from 'react';
 import FormulaService from '../../services/FormulaService';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 //legger til en sjåfør
 const AddDriver = () => {
-    const [firstname, setFirstName] = useState("");
+    const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [age, setAge] = useState("");
     const [nationality, setNationality] = useState("");
     const [imgDriver, setImgDriver] = useState("");
+    
+    //ved å håndtere error til bruker
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
 
     const handleChange = (e) => {
         switch(e.currentTarget.name) {
@@ -29,41 +35,55 @@ const AddDriver = () => {
         }
     }
 
-    const saveDriver = () => {
-        const newDriver = {
-            firstName: firstName,
-            lastName: lastName,
-            age: age,
-            nationality: nationality,
-            imgDriver: imgDriver.name
-        };
-        FormulaService.postDrivers(newDriver, imgDriver);
+    const saveDriver = async () => {
+        try{
+            setLoading(true);
+            const newDriver = {
+                firstName: firstName,
+                lastName: lastName,
+                age: age,
+                nationality: nationality,
+                imgDriver: imgDriver.name
+            };
+            await FormulaService.postDrivers(newDriver, imgDriver);
+        }
+        catch(error){
+            console.error("Feil ved lagring av fører:", error);
+            setError("Something went wrong by adding a driver. Please try again");
+        } finally {
+            setLoading(false);
+        }
     }
+
     return(
-        <section>
-            <h3>Sign up as a new driver!</h3>
-            <div>
-                <label>Firstname</label>
-                <input name='firstName' onChange={handleChange} type="text"/>
+        //inputfelt hvor bruker kan skrive inn sine verdier
+        <section className="container mt-4 bg-dark p-4 rounded">
+            {error && <p style={{color: "red"}}>{error}</p>}
+            <div className="form-group">
+                <label className="text-white">Firstname</label>
+                <input name='firstName' value="firstname" onChange={handleChange} type="text" className="form-control"/>
                 
             </div>
-            <div>
-                <label>Lastname</label>
-                <input name='lastName' onChange={handleChange} type="text"/>
+            <div className="form-group">
+                <label className="text-white">Lastname</label>
+                <input name='lastName' value="lastname" onChange={handleChange} type="text" className="form-control"/>
             </div>
-            <div>
-                <label>Age</label>
-                <input name='age' onChange={handleChange} type="text"/>
+
+            <div className="form-group">
+                <label className="text-white">Age</label>
+                <input name='age' value="Age" onChange={handleChange} type="text" className="form-control"/>
             </div>
-            <div>
-                <label>Nationality</label>
-                <input name='nationality' onChange={handleChange} type="text"/>
+            <div className="form-group">
+                <label className="text-white">Nationality</label>
+                <input name='nationality' value="Nationality" onChange={handleChange} type="text" className="form-control"/>
             </div>
-            <div>
-                <label>Image of yourself</label>
-                <input name='imgDriver' onChange={handleChange} type="file"/>
+            <div className="form-group">
+                <label className="text-white">Image of yourself</label>
+                <input name='imgDriver' onChange={handleChange} type="file" className="form-control-file text-white p-3"/>
             </div>
-            <input onClick={saveDriver} type="button" value="Add Driver"/>
+            <button onClick={saveDriver} disabled={loading} className="btn btn-danger">
+                {loading ? "Adding Driver..." : "Add Driver"}
+            </button>
         </section>
     )
 }

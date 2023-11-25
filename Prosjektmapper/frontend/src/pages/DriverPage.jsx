@@ -13,7 +13,7 @@ const DriverPage = () => {
     }, []);
     return(
         <div className="container">
-            <h2 className="m-4 p-4 fs-1 text-white">Seasons Formula 1 overview</h2>
+            <h2 className="m-4 p-4 fs-1 text-white">SEASONS FORMULA 1 OVERVIEW</h2>
             <section>
                 <DriverList/>
             </section>
