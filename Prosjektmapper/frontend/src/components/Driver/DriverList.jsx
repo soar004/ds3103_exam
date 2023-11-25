@@ -1,4 +1,4 @@
-//viser informasjon om alle førere, inkludert informasjon om førerne
+//viser informasjon om alle førere
 import { useContext, useEffect } from 'react';
 import FormulaService from '../../services/FormulaService';
 import { Formula1Context } from '../../context/Formula1Context';

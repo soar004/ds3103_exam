@@ -9,9 +9,9 @@ using Formula1API.Models;
 using System;
 using System.Linq;
 using Formula1API.Contexts;
+    using SQLitePCL;
 
-
-[ApiController]
+    [ApiController]
 [Route("api/races")]
 public class RacesController : ControllerBase
 {
@@ -23,12 +23,12 @@ public class RacesController : ControllerBase
     }
 
     [HttpGet]
-    public ActionResult<IEnumerable<Race>> GetRaces()
+    public async Task<ActionResult<List<Race>>> GetRaces()
     {
         try
         {
-            var races = _context.Races.ToList();
-            return Ok(races);
+            List<Race> races = await _context.Races.ToListAsync();
+            return Ok();
         }
         catch (Exception ex)
         {
@@ -37,17 +37,19 @@ public class RacesController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public ActionResult<Race> GetRaceById(int id)
+    public async Task<ActionResult<Race>> GetRaceById(int id)
     {
         try
         {
-            var race = _context.Races.FirstOrDefault(r => r.Id == id);
-
-            if (race == null)
+            Race? races = await _context.Races.FindAsync();
+            if (races != null)
+            {
+                return Ok(races);
+            }
+            else
             {
                 return NotFound();
             }
-            return Ok(race);
         }
         catch (Exception ex)
         {

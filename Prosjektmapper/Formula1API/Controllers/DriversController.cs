@@ -21,12 +21,12 @@ public class DriversController : ControllerBase
 
     // GET: api/drivers
     [HttpGet]
-    public ActionResult<IEnumerable<Driver>> GetDrivers()
+    public async Task<ActionResult<List<Driver>>> GetDrivers()
     {
         try
         {
             // Retrieve all teams from the database
-            var drivers = _context.Drivers.ToList();
+            List<Driver> drivers = await _context.Drivers.ToListAsync();
             return Ok(drivers);
         }
         catch (Exception ex)
@@ -37,18 +37,19 @@ public class DriversController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public ActionResult<Driver> GetDriverById(int id)
+    public async Task<ActionResult<Driver>> GetDriverById(int id)
     {
         try
         {
-            var driver = _context.Drivers.FirstOrDefault(d => d.Id == id);
+            Driver? driver = await _context.Drivers.FindAsync(id);
 
-            if (driver == null)
+            if (driver != null )
             {
+                return Ok(driver);
+            }
+            else{
                 return NotFound();
             }
-
-            return Ok(driver);
         }
         catch (Exception ex)
         {
@@ -73,19 +74,12 @@ public class DriversController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult<Driver>> CreateDriver(Driver newDriver)
+    public IActionResult CreateDriver(Driver newDriver)
     {
-        try
-        {
             _context.Drivers.Add(newDriver);
             //lagrer i databasen
-            await _context.SaveChangesAsync();
-            return NoContent();
-        }
-        catch (Exception ex)
-        {
-            return StatusCode(500, $"Internal server error by creating a driver: {ex.Message}");
-        }
+            _context.SaveChanges();
+            return Ok();
     }
 
     /*[HttpPut("{id}")]

@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react';
 import FormulaService from '../../services/FormulaService';
 
+//legger til en sjåfør
 const AddDriver = () => {
     const [firstname, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
