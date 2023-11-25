@@ -21,6 +21,9 @@ const Navbar = () => {
                             <Link className="nav-link text-white" to="/new-driver">SIGN UP AS A DRIVER</Link>
                         </li>
                         <li className="nav-item ml-2">
+                            <Link className="nav-link text-white" to="/results">RESULTS</Link>
+                        </li>
+                        <li className="nav-item ml-2">
                             <Link className="nav-link text-white" to="/quiz">QUIZ</Link>
                         </li>
                     </ul>

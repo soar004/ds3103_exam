@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route} from 'react-router-dom'
-import { HomePage, DriverPage, NewDriverPage, QuizPage, RacePage } from './pages'
+import { HomePage, DriverPage, NewDriverPage, QuizPage, RacePage, ResultPage } from './pages'
 import './app.css';
 import Navbar from './components/shared/Navbar';
 import { Formula1Provider } from './context/Formula1Context';
@@ -18,6 +18,7 @@ function App() {
             <Route path="/races" element={<RacePage/>} />
             <Route path="/new-driver" element={<NewDriverPage/>} />
             <Route path="/quiz" element={<QuizPage/>} />
+            <Route path="/results" element={<ResultPage/>} />
           </Routes>
           </Formula1Provider>
         </main>
