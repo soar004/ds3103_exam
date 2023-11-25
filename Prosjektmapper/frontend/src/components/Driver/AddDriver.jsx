@@ -44,10 +44,23 @@ const AddDriver = () => {
             <div>
                 <label>Firstname</label>
                 <input name='firstName' onChange={handleChange} type="text"/>
+                
             </div>
             <div>
                 <label>Lastname</label>
                 <input name='lastName' onChange={handleChange} type="text"/>
+            </div>
+            <div>
+                <label>Age</label>
+                <input name='age' onChange={handleChange} type="text"/>
+            </div>
+            <div>
+                <label>Nationality</label>
+                <input name='nationality' onChange={handleChange} type="text"/>
+            </div>
+            <div>
+                <label>Image of yourself</label>
+                <input name='imgDriver' onChange={handleChange} type="file"/>
             </div>
             <input onClick={saveDriver} type="button" value="Add Driver"/>
         </section>
