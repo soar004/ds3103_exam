@@ -1,4 +1,4 @@
-# Eksamen i DS3103 
+# Eksamen i DS3103 Webutvikling
 
 See `Exam-DS3103-Webutvikling-H2023-including-assessment-guide-2.pdf` for information about the exam. 
 
